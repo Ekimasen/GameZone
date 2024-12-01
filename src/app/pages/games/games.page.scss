@@ -1,0 +1,162 @@
+/* Header Styling */
+ion-toolbar {
+  text-align: center;
+  --ion-toolbar-background: linear-gradient(180deg, #2196F3, #21CBF3);
+  --ion-toolbar-color: white;
+}
+
+ion-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+.search-container {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-item {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  padding-left: 30px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.search-input:focus {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.clear-icon {
+  cursor: pointer;
+}
+
+.search-button {
+  padding: 8px 15px;
+  color: #00a4aa;
+  --background: transparent;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.search-button:hover {
+  color: #2a60b8;
+  border-color: #2a60b8;
+}
+
+/* Game Card Styling */
+.game-card {
+  margin: 10px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+ion-card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+ion-card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+ion-card-subtitle {
+  font-size: 14px;
+  color: #555;
+}
+
+ion-card-content {
+  font-size: 14px;
+  color: #666;
+  padding: 10px;
+}
+
+/* Loading Spinner */
+.center-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.loading-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3880ff;
+}
+
+/* Error Message */
+.error-message {
+  color: #ff3b30;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  background-color: #ffe6e6;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.error-message ion-icon {
+  margin-right: 10px;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  padding: 20px;
+  text-align: center;
+}
+
+.pagination-controls ion-button {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 30px;
+  margin: 5px;
+  color: #3880ff; /* Set text color to blue */
+  font-weight: bold;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.pagination-controls ion-button:hover {
+  color: #2a60b8; /* Change text color on hover */
+  border-color: #2a60b8; /* Change border color on hover */
+}
+
+.pagination-controls ion-button[disabled] {
+  background-color: transparent; /* Set background to transparent */
+  color: #a3a3a3;
+  border: 2px solid #e0e0e0; /* Change border color for disabled state */
+}
+
+/* No Games Found */
+.center-content p {
+  font-size: 18px;
+  color: #555;
+  transition: color 0.3s;
+}
+ion-img{
+  height: 200px;
+}

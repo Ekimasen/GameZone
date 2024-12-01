@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/games"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ game?.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon 
+        [name]="isFavorite ? 'heart' : 'heart-outline'" 
+        [color]="isFavorite ? 'danger' : 'medium'" 
+        (click)="toggleFavorite(game)">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="game">
+    <ion-card>
+      <ion-img [src]="game.background_image || 'assets/fallback-image.jpg'" alt="{{ game.name }}"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ game.name }}</ion-card-title>
+        <ion-card-subtitle>Genre: {{ getGenres(game) }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Released:</strong> {{ game.released || 'Unknown' }}</p>
+        <p><strong>Rating:</strong> {{ game.rating || 'N/A' }}</p>
+        <p><strong>Platforms:</strong>
+          <span *ngFor="let platform of game.platforms">
+            {{ platform.platform.name }}{{ platform !== game.platforms[game.platforms.length - 1] ? ', ' : '' }}
+          </span>
+        </p>
+        <p><strong>Description:</strong> <span [innerHTML]="game.description_raw || 'No description available.'"></span></p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Screenshots Section -->
+    <ion-card *ngIf="screenshots.length">
+      <ion-card-header>
+        <ion-card-title>Screenshots</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="screenshots">
+          <img *ngFor="let screenshot of screenshots.slice(0, 3)" [src]="screenshot.image" alt="Screenshot" class="screenshot-image">
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <p *ngIf="!screenshots.length">No screenshots available.</p>
+  </div>
+
+  <!-- Loading Spinner if game data is not available -->
+  <div *ngIf="isLoading">
+    <ion-spinner name="dots"></ion-spinner>
+    <p>Loading game details...</p>
+  </div>
+</ion-content>

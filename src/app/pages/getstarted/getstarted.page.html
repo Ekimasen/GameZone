@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Welcome to GameZone</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Responsive Swiper -->
+  <swiper-container autoplay="true" slides-per-view="1" speed="1000" loop="true" css-mode="true" style="width: 100%; height: auto;" pagination="true">
+    <swiper-slide>
+      <img src="assets/img/mario.jpg" alt="Game 1" class="responsive-image" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="assets/img/OIP.jpg" alt="Game 2" class="responsive-image" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="assets/img/Doom.jpg" alt="Game 3" class="responsive-image" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="assets/img/persona.jpg" alt="Game 4" class="responsive-image" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="assets/img/pokemon.jpg" alt="Game 5" class="responsive-image" />
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- Responsive Card -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Welcome to GameZone</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Discover your favorite games, stats, and guides! Ready to start?</p>
+      <ion-button expand="full" color="primary" [routerLink]="['/login']">Start Playing</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

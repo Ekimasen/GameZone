@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Login Form -->
+  <form [formGroup]="loginForm" (ngSubmit)="callLogin()">
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email" fill="outline" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input 
+        [type]="showPassword ? 'text' : 'password'" 
+        formControlName="password" 
+        fill="outline" 
+        required>
+        <ion-icon 
+          [name]="showPassword ? 'eye-off' : 'eye'" 
+          slot="end" 
+          (click)="togglePasswordVisibility()">
+        </ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
+  </form>
+
+  <p [routerLink]="['/signup']">Don't have an account? Sign Up</p>
+
+  <!-- Display error or success messages -->
+  <ion-toast *ngIf="errorMessage" [message]="errorMessage" color="danger"></ion-toast>
+  <ion-toast *ngIf="successMessage" [message]="successMessage" color="success"></ion-toast>
+</ion-content>

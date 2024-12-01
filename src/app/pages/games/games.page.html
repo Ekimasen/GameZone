@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>Games</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Search Bar and Buttons Container -->
+  <div class="search-container">
+    <ion-item class="search-item">
+      <!-- Search Input -->
+      <ion-input
+        [(ngModel)]="searchQuery"
+        placeholder="Search games..."
+        debounce="500"
+        class="search-input"
+      ></ion-input>
+      <ion-icon
+        *ngIf="searchQuery"
+        name="close-circle"
+        slot="end"
+        (click)="searchQuery = ''; onSearchButtonClick()"
+        class="clear-icon"
+      ></ion-icon>
+    </ion-item>
+
+    <!-- Search Icon Button -->
+    <ion-button
+      class="search-button"
+      (click)="onSearchButtonClick()"
+    >
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="center-content" *ngIf="isLoading">
+    <ion-spinner name="dots"></ion-spinner>
+    <p class="loading-text">Loading games...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage && !isLoading" class="error-message">
+    <ion-icon name="warning-outline"></ion-icon>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Games List -->
+  <ion-list *ngIf="!isLoading && games.length">
+    <ion-card *ngFor="let game of games" class="game-card" (click)="goToGameDetail(game)">
+      <ion-img [src]="game.background_image || 'assets/fallback-image.jpg'" alt="{{ game.name }}"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ game.name }}</ion-card-title>
+        <ion-card-subtitle>Genre: {{ getGenres(game) }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Released:</strong> {{ game.released || 'Unknown' }}</p>
+        <p><strong>Rating:</strong> {{ game.rating || 'N/A' }}</p>
+        <p><strong>Platforms:</strong> 
+          <span *ngFor="let platform of game.platforms">
+            {{ platform.platform.name }}{{ platform !== game.platforms[game.platforms.length - 1] ? ', ' : '' }}
+          </span>
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>  
+
+  <!-- Pagination Controls -->
+  <div *ngIf="totalPages > 1" class="pagination-controls">
+    <ion-row>
+      <ion-col size="6" *ngIf="currentPage > 1">
+        <ion-button
+          (click)="loadPreviousPage()"
+          color="primary"
+          expand="full"
+          [disabled]="isLoading || currentPage === 1"
+        >
+          <ion-icon slot="start" name="chevron-back"></ion-icon>
+          Previous
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6" *ngIf="currentPage < totalPages">
+        <ion-button
+          (click)="loadNextPage()"
+          color="primary"
+          expand="full"
+          [disabled]="isLoading || currentPage === totalPages"
+        >
+          <ion-icon slot="start" name="chevron-forward"></ion-icon>
+          Next
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- No Games Found -->
+  <div *ngIf="!isLoading && !games.length" class="center-content">
+    <p>No games found for your search.</p>
+  </div>
+</ion-content>
+
+<app-bottom-nav></app-bottom-nav>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Welcome to GameZone</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Home Page Hero Section -->
+  <section id="hero" class="ion-padding">
+    <h2>Discover the Best Game Platforms</h2>
+    <p>Browse through various game platforms and discover the latest games you can enjoy!</p>
+    <ion-button expand="full" (click)="togglePlatforms()" color="primary">
+      Browse Platforms
+    </ion-button>
+  </section>
+
+  <!-- Loading Spinner -->
+  <ion-spinner *ngIf="isLoading"></ion-spinner>
+
+  <!-- Game Platforms List -->
+  <section class="section" *ngIf="showPlatforms && !isLoading">
+    <h3 class="section-title">Popular Platforms</h3>
+    <ion-list>
+      <ion-item *ngFor="let platform of platforms">
+        <ion-thumbnail slot="start">
+          <img [src]="platform.image_background" alt="{{ platform.name }}" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ platform.name }}</h2>
+          <p>Games: {{ platform.games_count }}</p>
+        </ion-label>
+
+        <ion-button slot="end" [routerLink]="['/games', platform.id]">
+          View Details
+        </ion-button>        
+      </ion-item>
+    </ion-list>
+  </section>
+</ion-content>
+
+<app-bottom-nav></app-bottom-nav>

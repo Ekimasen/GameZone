@@ -1,0 +1,168 @@
+/* Header Styling */
+ion-toolbar {
+  text-align: center;
+  --ion-toolbar-background: linear-gradient(180deg, #2196F3, #21CBF3);
+  --ion-toolbar-color: white;
+}
+
+ion-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+/* Hero Section */
+#hero {
+  text-align: center;
+  background: #f4f4f4;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 1rem; /* Add margin for better spacing on mobile */
+}
+
+#hero h2 {
+  font-size: 1.5rem; /* Adjust font size for better readability on mobile */
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+#hero p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+#hero ion-button {
+  font-size: 1rem; /* Adjust font size for better readability on mobile */
+  padding: 0.8rem;
+  font-weight: 600;
+}
+/* Section Title */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+/* Game Platforms List */
+ion-list {
+  padding: 0 1rem; /* Add padding for better spacing on mobile */
+  margin-bottom: 2rem;
+}
+
+ion-item {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-bottom: 0.8rem; /* Reduce margin for compact design */
+  padding: 0.8rem; /* Reduce padding for compact design */
+  border-radius: 8px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+ion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+ion-thumbnail {
+  border-radius: 8px;
+  width: 50px; /* Reduce thumbnail size for compact design */
+  height: 50px; /* Reduce thumbnail size for compact design */
+  margin-right: 0.8rem; /* Reduce margin for compact design */
+}
+
+ion-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1; /* Allow label to take up remaining space */
+}
+
+ion-label h2 {
+  font-size: 1rem; /* Reduce font size for compact design */
+  color: #333;
+  margin-bottom: 0.3rem; /* Adjust margin */
+}
+
+ion-label p {
+  font-size: 0.9rem; /* Reduce font size for compact design */
+  color: #666;
+}
+
+ion-button {
+  font-size: 0.8rem; /* Slightly smaller font for smaller screens */
+  font-weight: 500;
+  background: linear-gradient(180deg, #2196F3, #21CBF3);
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  padding: 0.4rem 0.8rem; /* Adjust padding for compact design */
+  margin-left: auto; /* Align button to the right */
+  white-space: nowrap; /* Prevent text from wrapping */
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 20px;
+}
+
+ion-button:hover {
+  background: linear-gradient(180deg, #2196F3, #21CBF3);
+  transform: scale(1.05);
+}
+
+/* Responsive Button */
+@media (max-width: 600px) {
+  ion-button {
+    font-size: 0.7rem; /* Slightly smaller font for smaller screens */
+    padding: 0.3rem 0.6rem; /* Adjust padding for smaller screens */
+  }
+
+  ion-item {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  ion-thumbnail {
+    margin-bottom: 1rem; /* Add margin below thumbnail for spacing */
+  }
+
+  ion-label {
+    align-items: flex-start; /* Align label items to the start */
+  }
+}
+
+/* Loading Spinner */
+ion-spinner {
+  display: block;
+  margin: 2rem auto; /* Center the spinner */
+  align-items: center;
+}
+
+/* Error Message */
+.error-message {
+  color: #ff3b30;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  background-color: #ffe6e6;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+  margin: 1rem; /* Add margin for better spacing on mobile */
+}
+
+.error-message ion-icon {
+  margin-right: 10px;
+}
+
+/* Bottom Navigation */
+app-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

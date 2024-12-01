@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Loading and Error/Success Messages -->
+  <div *ngIf="isLoading" class="loading">
+    Loading...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <!-- Ion Card to wrap the profile form -->
+  <ion-card>
+    <div class="center-content">
+      <!-- Profile Picture -->
+      <ion-avatar (click)="pickProfilePicture()">
+        <img *ngIf="profilePicture; else defaultProfilePic" [src]="profilePicture" />
+        <ng-template #defaultProfilePic>
+          <img src="assets/default-profile.png" />
+        </ng-template>
+      </ion-avatar>
+
+      <!-- Profile Form -->
+      <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <!-- Password change toggle button -->
+        <ion-item>
+          <ion-button expand="full" (click)="togglePasswordFields()">
+            Change Password
+          </ion-button>
+        </ion-item>
+
+        <!-- Password fields, initially hidden -->
+        <div *ngIf="showPasswordFields">
+          <ion-item>
+            <ion-label position="floating">Current Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">New Password</ion-label>
+            <ion-input formControlName="newPassword" type="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Confirm New Password</ion-label>
+            <ion-input formControlName="confirmPassword" type="password"></ion-input>
+          </ion-item>
+        </div>
+
+        <!-- Save Button -->
+        <ion-button expand="full" type="submit" [disabled]="profileForm.invalid">Save</ion-button>
+      </form>
+    </div>
+  </ion-card>
+
+  <!-- Logout Button -->
+  <ion-button expand="full" color="danger" (click)="logout()">Logout</ion-button>
+</ion-content>
+
+<app-bottom-nav></app-bottom-nav>

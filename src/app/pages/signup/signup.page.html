@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Signup Form -->
+  <form [formGroup]="signupForm" (ngSubmit)="callCreate()">
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="text" formControlName="name" fill="outline" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email" fill="outline" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input 
+        type="{{ showPassword ? 'text' : 'password' }}" 
+        formControlName="password" 
+        fill="outline" 
+        required>
+        <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Confirm Password</ion-label>
+      <ion-input 
+        type="{{ showConfirmPassword ? 'text' : 'password' }}" 
+        formControlName="confirmPassword" 
+        fill="outline" 
+        required>
+        <ion-icon name="{{ showConfirmPassword ? 'eye-off' : 'eye' }}" slot="end" (click)="toggleConfirmPasswordVisibility()"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <!-- Error Message for Password Mismatch -->
+    <ion-text *ngIf="signupForm.hasError('passwordMismatch')" color="danger">
+      <p>Passwords do not match</p>
+    </ion-text>    
+
+    <ion-button expand="block" type="submit" [disabled]="signupForm.invalid">Sign Up</ion-button>
+  </form>
+
+  <!-- Error or Success Messages -->
+  <ion-toast *ngIf="errorMessage" [message]="errorMessage" color="danger"></ion-toast>
+  <ion-toast *ngIf="successMessage" [message]="successMessage" color="success"></ion-toast>
+</ion-content>
