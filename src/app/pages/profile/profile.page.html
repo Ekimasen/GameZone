@@ -22,7 +22,7 @@
   <ion-card>
     <div class="center-content">
       <!-- Profile Picture -->
-      <ion-avatar (click)="pickProfilePicture()">
+      <ion-avatar (click)="pickProfilePicture()" class="profile-picture">
         <img *ngIf="profilePicture; else defaultProfilePic" [src]="profilePicture" />
         <ng-template #defaultProfilePic>
           <img src="assets/default-profile.png" />
