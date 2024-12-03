@@ -1,3 +1,24 @@
-p {
-    text-align: center;
-}
+/* Styling for the login button */
+ion-button[type="submit"] {
+    --background: #2F3B53; /* Set the button background color */
+    --color: #FFFFFF;      /* Ensure the text is white for contrast */
+    --border-radius: 8px;  /* Optional: Add rounded corners */
+    font-weight: bold;     /* Optional: Make the text bold */
+  
+    &:hover {
+      filter: brightness(1.1); /* Optional: Slight hover effect */
+    }
+  }
+/* Styling for the 'Sign Up' link */
+p[routerLink] {
+    color: blue; /* Default text color */
+    text-align: center; /* Center-align text */
+    font-size: 1em; /* Optional: Adjust font size */
+    text-decoration: underline; /* Underline to show it's a link */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  
+    &:hover {
+      color: darkblue; /* Hover effect color */
+    }
+  }
+    

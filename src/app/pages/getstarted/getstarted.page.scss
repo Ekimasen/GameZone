@@ -1,6 +1,6 @@
 /* Global background for ion-content */
 ion-content {
-  --background: #21CBF3;
+  --background: linear-gradient(180deg, #020326,  #353e4b);
   padding-bottom: 1rem;  /* Avoids content overlapping on smaller screens */
   padding-top: 0; /* Prevents space above the header */
 }
@@ -23,10 +23,14 @@ ion-card {
 /* Styling for ion-toolbar */
 ion-toolbar {
   text-align: center;
-  --background: linear-gradient(180deg, #2196F3, #21CBF3);
+  --background: linear-gradient(180deg, #020326,  #353e4b);
   color: #fff;
 }
-
+/* Color buton change */
+ion-button.start-playing {
+  --background: #49659e;
+  --color: #FFFFFF;
+}
 /* Styling for swiper-container */
 swiper-container {
   width: 100%;
@@ -109,3 +113,4 @@ swiper-slide {
     height: 50vh;
   }
 }
+
