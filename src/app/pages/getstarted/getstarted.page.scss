@@ -5,14 +5,15 @@ ion-content {
   padding-top: 0; /* Prevents space above the header */
 }
 
-/* Styling for ion-card */
+/* Styling for ion-card with color and opacity */
 ion-card {
   margin: 10px;
   text-align: center;
+  background-color: rgba(43, 60, 71, 0.6); /* Set background color to #2F3B52 with 60% opacity */
   
   ion-card-title {
     font-size: 1.5em;
-    color: #2196F3;
+    color: #ffffff; /* Title color */
   }
 
   ion-card-content {
@@ -26,11 +27,13 @@ ion-toolbar {
   --background: linear-gradient(180deg, #020326,  #353e4b);
   color: #fff;
 }
-/* Color buton change */
+
+/* Color button change */
 ion-button.start-playing {
   --background: #49659e;
   --color: #FFFFFF;
 }
+
 /* Styling for swiper-container */
 swiper-container {
   width: 100%;
@@ -48,7 +51,7 @@ swiper-slide {
 .responsive-image {
   width: 100%;
   height: 70vh;
-  object-fit:fill; /* Maintain aspect ratio while covering the container */
+  object-fit: fill; /* Maintain aspect ratio while covering the container */
   border-radius: 8px; /* Rounded corners */
 }
 
@@ -113,4 +116,3 @@ swiper-slide {
     height: 50vh;
   }
 }
-
