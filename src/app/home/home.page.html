@@ -9,7 +9,7 @@
   <section id="hero" class="ion-padding">
     <h2>Discover the Best Game Platforms</h2>
     <p>Browse through various game platforms and discover the latest games you can enjoy!</p>
-    <ion-button expand="full" (click)="togglePlatforms()" color="primary">
+    <ion-button expand="full" (click)="togglePlatforms()" class="browse-platforms-btn">
       Browse Platforms
     </ion-button>
   </section>
@@ -32,7 +32,7 @@
 
         <ion-button slot="end" [routerLink]="['/games', platform.id]">
           View Details
-        </ion-button>        
+        </ion-button>
       </ion-item>
     </ion-list>
   </section>
