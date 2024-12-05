@@ -4,7 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content class="ion-padding">
+    <div *ngIf="games.length > 0">
+      <swiper-container
+        autoplay="true"
+        slides-per-view="1"
+        speed="1000"
+        loop="true"
+        css-mode="true"
+        pagination="true">
+        <swiper-slide *ngFor="let game of games">
+          <img [src]="game.background_image || 'assets/fallback-image.jpg'" alt="{{ game.name }}" class="responsive-image" />
+        </swiper-slide>
+      </swiper-container>
+    </div>  
   <!-- Home Page Hero Section -->
   <section id="hero" class="ion-padding">
     <h2>Discover the Best Game Platforms</h2>
