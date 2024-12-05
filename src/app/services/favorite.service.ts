@@ -4,23 +4,39 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FavoriteService {
-  private favoriteGames: any[] = [];
-
   constructor() {}
 
-  addToFavorite(game: any) {
-    this.favoriteGames.push(game);
+  private getLocalStorageKey(userId: number): string {
+    return `favoriteGames_${userId}`;
   }
 
-  getFavoriteGames(): any[] {
-    return this.favoriteGames;
+  private loadFavorites(userId: number): any[] {
+    const storedGames = localStorage.getItem(this.getLocalStorageKey(userId));
+    return storedGames ? JSON.parse(storedGames) : [];
   }
 
-  removeFromFavorite(gameId: number) {
-    this.favoriteGames = this.favoriteGames.filter(game => game.id !== gameId);
+  private saveFavorites(userId: number, favoriteGames: any[]): void {
+    localStorage.setItem(this.getLocalStorageKey(userId), JSON.stringify(favoriteGames));
   }
 
-  isFavorite(gameId: number): boolean {
-    return this.favoriteGames.some(game => game.id === gameId);
+  addToFavorite(userId: number, game: any) {
+    const favoriteGames = this.loadFavorites(userId);
+    favoriteGames.push(game);
+    this.saveFavorites(userId, favoriteGames);
+  }
+
+  getFavoriteGames(userId: number): any[] {
+    return this.loadFavorites(userId);
+  }
+
+  removeFromFavorite(userId: number, gameId: number) {
+    let favoriteGames = this.loadFavorites(userId);
+    favoriteGames = favoriteGames.filter(game => game.id !== gameId);
+    this.saveFavorites(userId, favoriteGames);
+  }
+
+  isFavorite(userId: number, gameId: number): boolean {
+    const favoriteGames = this.loadFavorites(userId);
+    return favoriteGames.some(game => game.id === gameId);
   }
 }
