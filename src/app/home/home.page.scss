@@ -1,3 +1,16 @@
+/* Toolbar with Gradient Background */
+ion-toolbar {
+  --background: linear-gradient(180deg, #020326, #353e4b); /* Gradient background */
+}
+
+/* Title Styling */
+ion-title {
+  font-size: 1.2rem; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  text-align: center; /* Center-align text */
+  color: white; /* Text color for better readability */
+}
+
 /* General Button Styles */
 ion-button, .browse-platforms-btn {
   --background: #353e4b; /* Single solid color */
@@ -120,6 +133,7 @@ ion-label p {
   font-size: 0.9rem;
   color: #666;
 }
+
 /* Styling for swiper-container */
 swiper-container {
   width: 100%;
