@@ -5,6 +5,7 @@
   align-items: center;
   height: 100vh;
   background-color: #f8f9fa;
+  overflow: hidden;
 }
 
 .pikachu {
@@ -14,7 +15,7 @@
   width: 150px;
   height: auto;
   margin-bottom: 20px;
-  transition: left 0.2s ease-in-out; /* Smooth transition for movement */
+  transition: left 0.2s ease-in-out;
 }
 
 .progress-bar {
@@ -28,6 +29,48 @@
 
 .progress {
   height: 100%;
-  background-color: #ffd700; /* Yellow color for the progress */
+  background-color: #ff00ff; /* Magenta color for the progress */
   transition: width 0.2s ease-in-out;
+}
+
+.falling-gif {
+  position: absolute;
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  animation: fall 5s infinite;
+}
+
+.falling-gif-1 {
+  top: -100px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.falling-gif-2 {
+  top: -100px;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.falling-gif-3 {
+  top: -100px;
+  left: 60%;
+  animation-delay: 2s;
+}
+
+.falling-gif-4 {
+  top: -100px;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+@keyframes fall {
+  0% {
+    top: -100px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
 }

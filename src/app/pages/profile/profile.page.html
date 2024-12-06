@@ -4,30 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Loading and Error/Success Messages -->
-  <div *ngIf="isLoading" class="loading">
-    Loading...
-  </div>
+<ion-content class="ion-padding">
+  <!-- Loading Spinner -->
+  <ion-spinner *ngIf="isLoading" class="loading-spinner" name="crescent"></ion-spinner>
 
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
-
-  <div *ngIf="successMessage" class="success-message">
-    {{ successMessage }}
-  </div>
-
-  <!-- Ion Card to wrap the profile form -->
+  <!-- Profile Form Card -->
   <ion-card>
     <div class="center-content">
-      <!-- Profile Picture -->
-      <ion-avatar (click)="pickProfilePicture()" class="profile-picture">
+      <!-- Profile Picture Section -->
+      <ion-avatar class="profile-picture" (click)="pickProfilePicture()">
         <img *ngIf="profilePicture; else defaultProfilePic" [src]="profilePicture" />
         <ng-template #defaultProfilePic>
           <img src="assets/img/default.jpg" />
         </ng-template>
       </ion-avatar>
+      <ion-label class="profile-pic-label">Tap to change profile picture</ion-label>
 
       <!-- Profile Form -->
       <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
@@ -41,25 +32,23 @@
           <ion-input formControlName="email" type="email"></ion-input>
         </ion-item>
 
-        <!-- Password change toggle button -->
-        <ion-item>
+        <!-- Toggle Password Fields -->
+        <ion-item lines="none">
           <ion-button expand="full" (click)="togglePasswordFields()">
-            Change Password
+            {{ showPasswordFields ? 'Cancel Password Change' : 'Change Password' }}
           </ion-button>
         </ion-item>
 
-        <!-- Password fields, initially hidden -->
+        <!-- Password Fields -->
         <div *ngIf="showPasswordFields">
           <ion-item>
             <ion-label position="floating">Current Password</ion-label>
             <ion-input formControlName="password" type="password"></ion-input>
           </ion-item>
-
           <ion-item>
             <ion-label position="floating">New Password</ion-label>
             <ion-input formControlName="newPassword" type="password"></ion-input>
           </ion-item>
-
           <ion-item>
             <ion-label position="floating">Confirm New Password</ion-label>
             <ion-input formControlName="confirmPassword" type="password"></ion-input>
@@ -67,7 +56,9 @@
         </div>
 
         <!-- Save Button -->
-        <ion-button expand="full" type="submit" [disabled]="profileForm.invalid">Save</ion-button>
+        <ion-button expand="full" type="submit" [disabled]="profileForm.invalid">
+          Save
+        </ion-button>
       </form>
     </div>
   </ion-card>

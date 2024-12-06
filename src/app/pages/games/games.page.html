@@ -45,25 +45,29 @@
     <p>{{ errorMessage }}</p>
   </div>
 
-  <!-- Games List -->
-  <ion-list *ngIf="!isLoading && games.length">
-    <ion-card *ngFor="let game of games" class="game-card" (click)="goToGameDetail(game)">
-      <ion-img [src]="game.background_image || 'assets/fallback-image.jpg'" alt="{{ game.name }}"></ion-img>
-      <ion-card-header>
-        <ion-card-title>{{ game.name }}</ion-card-title>
-        <ion-card-subtitle>Genre: {{ getGenres(game) }}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <p><strong>Released:</strong> {{ game.released || 'Unknown' }}</p>
-        <p><strong>Rating:</strong> {{ game.rating || 'N/A' }}</p>
-        <p><strong>Platforms:</strong> 
-          <span *ngFor="let platform of game.platforms">
-            {{ platform.platform.name }}{{ platform !== game.platforms[game.platforms.length - 1] ? ', ' : '' }}
-          </span>
-        </p>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>  
+  <!-- Games Grid -->
+  <div class="games-grid" *ngIf="!isLoading && games.length">
+    <div class="game-card" *ngFor="let game of games" (click)="goToGameDetail(game)">
+      <div class="card-image-wrapper">
+        <ion-img [src]="game.background_image || 'assets/fallback-image.jpg'" alt="{{ game.name }}"></ion-img>
+      </div>
+      <div class="card-info">
+        <ion-card-header>
+          <ion-card-title>{{ game.name }}</ion-card-title>
+          <ion-card-subtitle>Genre: {{ getGenres(game) }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Released:</strong> {{ game.released || 'Unknown' }}</p>
+          <p><strong>Rating:</strong> {{ game.rating || 'N/A' }}</p>
+          <p><strong>Platforms:</strong> 
+            <span *ngFor="let platform of game.platforms">
+              {{ platform.platform.name }}{{ platform !== game.platforms[game.platforms.length - 1] ? ', ' : '' }}
+            </span>
+          </p>
+        </ion-card-content>
+      </div>
+    </div>
+  </div>
 
   <!-- Pagination Controls -->
   <div *ngIf="totalPages > 1" class="pagination-controls">

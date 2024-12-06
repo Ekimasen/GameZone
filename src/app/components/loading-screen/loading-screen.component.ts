@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class LoadingScreenComponent {
   progress = 0; // Progress starts at 0
-  pikaPosition = 0; // Position of the Pikachu
+  pikaPosition = -10; // Position of the Pikachu
   @Output() loadingComplete = new EventEmitter<void>(); // Emit when loading is done
 
   constructor() {
@@ -17,7 +17,7 @@ export class LoadingScreenComponent {
   incrementProgress() {
     const interval = setInterval(() => {
       this.progress += 5; // Increment progress by 5%
-      this.pikaPosition = this.progress; // Sync Pikachu's position with the progress bar
+      this.pikaPosition += 4; // Sync Pikachu's position with the progress bar
 
       if (this.progress >= 100) {
         clearInterval(interval);
