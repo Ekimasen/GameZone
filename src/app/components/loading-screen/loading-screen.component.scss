@@ -1,0 +1,33 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.pikachu {
+  position: absolute; /* Positioning Pikachu to move along the progress bar */
+  top: 300px;
+  bottom: 0;
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  transition: left 0.2s ease-in-out; /* Smooth transition for movement */
+}
+
+.progress-bar {
+  width: 80%; /* Adjust this as needed */
+  height: 20px;
+  background-color: #e0e0e0; /* Grey background for the progress bar */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #ffd700; /* Yellow color for the progress */
+  transition: width 0.2s ease-in-out;
+}

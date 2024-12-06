@@ -1,24 +1,128 @@
-/* Styling for the login button */
-ion-button[type="submit"] {
-    --background: #2F3B53; /* Set the button background color */
-    --color: #FFFFFF;      /* Ensure the text is white for contrast */
-    --border-radius: 8px;  /* Optional: Add rounded corners */
-    font-weight: bold;     /* Optional: Make the text bold */
-  
-    &:hover {
-      filter: brightness(1.1); /* Optional: Slight hover effect */
-    }
+/* General page styling */
+.login-page {
+  --background: linear-gradient(140deg, #f073df, #261f27); /* Gradient background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+/* Center the logo and login form container */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  margin-top: 120px;
+}
+
+/* Login card styling */
+.login-card {
+  width: 100%;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+ion-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3b5998;
+  text-align: center; /* Center align text */
+}
+
+/* Input field styling */
+.input-item {
+  margin-bottom: 15px;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+.input-item ion-label {
+  color: #555;
+}
+
+.password-toggle {
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Login button styling */
+.login-button {
+  background: #3b5998;
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main-button {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.main-button.secondary {
+  background: white;
+  color: #f5f5f5;
+  border: 1px solid #3b5998;
+}
+
+/* Hover effects */
+.main-button, .login-button {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.main-button:hover, .login-button:hover {
+  background: #2e4a88;
+}
+
+.main-button.secondary:hover {
+  background: #e6e6e6;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-/* Styling for the 'Sign Up' link */
-p[routerLink] {
-    color: blue; /* Default text color */
-    text-align: center; /* Center-align text */
-    font-size: 1em; /* Optional: Adjust font size */
-    text-decoration: underline; /* Underline to show it's a link */
-    cursor: pointer; /* Change cursor to pointer on hover */
-  
-    &:hover {
-      color: darkblue; /* Hover effect color */
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-    
+}
+
+.game-logo {
+  width: 200px; 
+  height: auto;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+  border-radius: 100px; 
+  animation: fadeIn 1s ease-in-out; 
+}
+.game-logo-wrapper {
+  width: 200px; 
+  height: 200px;
+  border-radius: 50%; 
+  border: 0px solid #ffffff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

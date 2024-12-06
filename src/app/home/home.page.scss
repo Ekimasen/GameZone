@@ -50,6 +50,8 @@ ion-button:focus, .browse-platforms-btn:focus {
   padding: 2rem 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 1rem;
+  border: 1px solid #353e4b;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 #hero h2 {
@@ -84,10 +86,10 @@ ion-item {
   display: flex;
   align-items: center;
   margin-bottom: 0.8rem;
-  padding: 0.8rem;
   border-radius: 8px;
+  width: 100%;
   background-color: #fafafa;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -123,10 +125,11 @@ ion-label p {
 /* Styling for swiper-container */
 swiper-container {
   width: 100%;
-  height: 50vh; /* Set swiper height for better responsiveness */
+  height: 40vh;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-/* Styling for swiper-slide */
+
 swiper-slide {
   display: flex;
   justify-content: center;
@@ -137,6 +140,15 @@ swiper-slide {
 .responsive-image {
   width: 100%;
   height: 40vh;
-  object-fit: fill; /* Maintain aspect ratio while covering the container */
-  border-radius: 8px; /* Rounded corners */
+  object-fit: cover; 
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.count{
+  font-size: 8px;
+}
+ion-spinner{
+  display: flex;
+  align-items: center;
 }

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatabaseService } from 'src/app/services/database.service';
 import { Router } from '@angular/router';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'; // Import the Camera plugin
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,7 @@ export class ProfilePage implements OnInit {
   showPasswordFields: boolean = false;
   profilePicture: string | undefined = ''; // Default to an empty string or undefined
 
-  constructor(private dbService: DatabaseService, private fb: FormBuilder, private router: Router) {
+  constructor(private dbService: DatabaseService, private fb: FormBuilder, private router: Router, private navCtrl: NavController) {
     this.profileForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -115,8 +116,10 @@ export class ProfilePage implements OnInit {
   async logout() {
     await this.dbService.clearSession();
     alert('Logged out!');
-    this.router.navigate(['/login']);
-  }
+  
+    // Clear navigation history and navigate to the login page
+    this.navCtrl.navigateRoot(['/login'], { animated: true, animationDirection: 'forward' });
+  }  
 
   // Function to pick a profile picture using the Camera plugin
   async pickProfilePicture() {
