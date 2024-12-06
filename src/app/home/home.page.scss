@@ -38,15 +38,6 @@ ion-button:focus, .browse-platforms-btn:focus {
   box-shadow: none;
 }
 
-/* Hero Section Button Specific */
-.browse-platforms-btn {
-  --background: #353e4b;
-  --background-hover: #4c5866;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-}
-
 /* Responsive Button Styling */
 @media (max-width: 600px) {
   ion-button, .browse-platforms-btn {
@@ -61,10 +52,9 @@ ion-button:focus, .browse-platforms-btn:focus {
   background: #f4f4f4;
   border-radius: 12px;
   padding: 2rem 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 1rem;
   border: 1px solid #353e4b;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #hero h2 {
@@ -91,20 +81,20 @@ ion-button:focus, .browse-platforms-btn:focus {
 
 /* Game Platforms List */
 ion-list {
-  padding: 0 1rem;
   margin-bottom: 2rem;
 }
 
+/* General Styling for ion-item */
 ion-item {
   display: flex;
   align-items: center;
   margin-bottom: 0.8rem;
   border-radius: 8px;
   width: 100%;
-  background-color: #fafafa;
   border: 1px solid #353e4b;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: transform 0.3s, box-shadow 0.3s;
+  padding: 0; /* Remove padding */
 }
 
 ion-item:hover {
@@ -112,11 +102,37 @@ ion-item:hover {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
+ion-item-option{
+  height: 70px;
+  width: 70px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+ion-item-sliding {
+  transition: transform 0.3s ease-in-out; /* Smooth sliding */
+}
+ion-item-options {
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+  opacity: 1; /* Hidden by default */
+}
+
+/* Adjust the sliding icon for better visual feedback */
+.sliding-icon {
+  transition: transform 0.3s ease-in-out; /* Match transition */
+}
+
+/* Add a subtle hover effect */
+ion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; /* Enhanced shadow */
+}
+/* Adjusted padding and margin for ion-thumbnail */
 ion-thumbnail {
   border-radius: 8px;
   width: 50px;
   height: 50px;
-  margin-right: 0.8rem;
+  margin-right: 5px; /* Adjusted margin-right */
+  padding: 0; /* Remove padding */
 }
 
 ion-label {
@@ -137,6 +153,20 @@ ion-label p {
   color: #666;
 }
 
+/* Sliding icon to indicate sliding */
+.sliding-icon {
+  color: #353e4b; /* Adjust the color to match your design */
+  font-size: 1.5rem; /* Adjust size as needed */
+  margin-left: 0.5rem; /* Adjust spacing */
+  opacity: 0.7; /* Slightly transparent */
+}
+
+/* Add hover effect to ion-item to indicate it is slidable */
+ion-item:hover .sliding-icon {
+  transform: translateX(5px); /* Slight movement to indicate sliding */
+  transition: transform 0.3s ease-in-out;
+}
+
 /* Styling for swiper-container */
 swiper-container {
   width: 100%;
@@ -144,7 +174,6 @@ swiper-container {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   border-radius: 10px;
 }
-
 
 swiper-slide {
   display: flex;
@@ -156,15 +185,15 @@ swiper-slide {
 .responsive-image {
   width: 100%;
   height: 40vh;
-  object-fit: cover; 
+  object-fit: cover;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
 }
-.count{
+
+.count {
   font-size: 8px;
 }
-ion-spinner{
+
+ion-spinner {
   display: flex;
   align-items: center;
 }
