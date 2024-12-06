@@ -7,6 +7,9 @@
 <ion-content class="ion-padding">
   <ion-list>
     <ion-item *ngFor="let game of favoriteGames">
+      <ion-thumbnail slot="start">
+        <img [src]="game.background_image" alt="{{ game.name }}">
+      </ion-thumbnail>
       <ion-label>{{ game.name }}</ion-label>
       <ion-button fill="clear" color="danger" (click)="removeFromFavorite(game.id)">
         Remove
