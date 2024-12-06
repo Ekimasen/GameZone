@@ -1,53 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Sign Up</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding signup-page">
+  <div class="signup-container">
+    <ion-card class="signup-card">
+      <ion-card-header class="ion-text-center">
+        <ion-card-title>Join Us</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="signupForm" (ngSubmit)="callCreate()">
+          <ion-item lines="none" class="input-item">
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" formControlName="name" required></ion-input>
+          </ion-item>
 
-<ion-content class="ion-padding">
-  <!-- Signup Form -->
-  <form [formGroup]="signupForm" (ngSubmit)="callCreate()">
-    <ion-item>
-      <ion-label position="stacked">Name</ion-label>
-      <ion-input type="text" formControlName="name" fill="outline" required></ion-input>
-    </ion-item>
+          <ion-item lines="none" class="input-item">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email" required></ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input type="email" formControlName="email" fill="outline" required></ion-input>
-    </ion-item>
+          <ion-item lines="none" class="input-item">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input 
+              [type]="showPassword ? 'text' : 'password'" 
+              formControlName="password" 
+              required>
+              <ion-icon 
+                [name]="showPassword ? 'eye-off' : 'eye'" 
+                slot="end" 
+                class="password-toggle"
+                (click)="togglePasswordVisibility()">
+              </ion-icon>
+            </ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input 
-        type="{{ showPassword ? 'text' : 'password' }}" 
-        formControlName="password" 
-        fill="outline" 
-        required>
-        <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
-      </ion-input>
-    </ion-item>
+          <ion-item lines="none" class="input-item">
+            <ion-label position="floating">Confirm Password</ion-label>
+            <ion-input 
+              [type]="showConfirmPassword ? 'text' : 'password'" 
+              formControlName="confirmPassword" 
+              required>
+              <ion-icon 
+                [name]="showConfirmPassword ? 'eye-off' : 'eye'" 
+                slot="end" 
+                class="password-toggle"
+                (click)="toggleConfirmPasswordVisibility()">
+              </ion-icon>
+            </ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Confirm Password</ion-label>
-      <ion-input 
-        type="{{ showConfirmPassword ? 'text' : 'password' }}" 
-        formControlName="confirmPassword" 
-        fill="outline" 
-        required>
-        <ion-icon name="{{ showConfirmPassword ? 'eye-off' : 'eye' }}" slot="end" (click)="toggleConfirmPasswordVisibility()"></ion-icon>
-      </ion-input>
-    </ion-item>
+          <ion-text *ngIf="signupForm.hasError('passwordMismatch')" color="danger" class="error-message">
+            <p>Passwords do not match</p>
+          </ion-text>
 
-    <!-- Error Message for Password Mismatch -->
-    <ion-text *ngIf="signupForm.hasError('passwordMismatch')" color="danger">
-      <p>Passwords do not match</p>
-    </ion-text>    
-
-    <ion-button expand="block" type="submit" [disabled]="signupForm.invalid">Sign Up</ion-button>
-  </form>
-
-  <!-- Error or Success Messages -->
-  <ion-toast *ngIf="errorMessage" [message]="errorMessage" color="danger"></ion-toast>
-  <ion-toast *ngIf="successMessage" [message]="successMessage" color="success"></ion-toast>
+          <ion-button expand="block" type="submit" [disabled]="signupForm.invalid" class="signup-button">Sign Up</ion-button>
+        </form>
+        <div class="button-group">
+          <ion-button expand="block" [routerLink]="['/login']" class="main-button">Already have an account? Log In</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
