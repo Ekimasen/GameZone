@@ -1,79 +1,69 @@
-/* Toolbar with Gradient Background */
 ion-toolbar {
-  --background: linear-gradient(180deg, #f073df, #261f27); /* Gradient background */
+  --background: linear-gradient(180deg, #f073df, #261f27);
 }
 
-/* Title Styling */
 ion-title {
-  font-size: 1.2rem; /* Adjust font size */
-  font-weight: bold; /* Make text bold */
-  text-align: center; /* Center-align text */
-  color: white; /* Text color for better readability */
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
 }
 
-/* General Button Styles */
 ion-button, .browse-platforms-btn {
-  --background: #353e4b; /* Single solid color */
-  --background-hover: #4c5866; /* Slightly darker on hover */
-  --background-activated: #4c5866; /* Active state */
-  --color: white; /* Text color */
-  --box-shadow: none; /* Remove any shadow effects */
-  --border-radius: 8px; /* Rounded corners */
-  font-size: 1rem; /* Adjust font size */
-  font-weight: 600; /* Make text bold */
-  padding: 0.4rem 0.8rem; /* Padding for a comfortable button size */
-  text-align: center; /* Center-align text */
-  text-transform: none; /* Remove default uppercase transformation */
-  transition: transform 0.2s, background 0.3s ease-in-out; /* Smooth hover transition */
+  --background: #353e4b;
+  --background-hover: #4c5866;
+  --background-activated: #4c5866;
+  --color: white;
+  --box-shadow: none;
+  --border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  text-transform: none;
+  transition: transform 0.2s, background 0.3s ease-in-out;
 }
 
-/* Updated Button Color */
 ion-button, .browse-platforms-btn {
-  --background: #cc52b2; /* New button color */
-  --background-hover: darken(#cc52b2, 10%); /* Slightly darker on hover */
-  --background-activated: lighten(#cc52b2, 10%); /* Slightly lighter on active */
+  --background: #cc52b2;
+  --background-hover: darken(#cc52b2, 10%);
+  --background-activated: lighten(#cc52b2, 10%);
 }
 
-/* Hover Effect */
 ion-button:hover, .browse-platforms-btn:hover {
-  transform: scale(1.03); /* Slight scaling effect */
+  transform: scale(1.03);
 }
 
-/* Remove focus outline */
 ion-button:focus, .browse-platforms-btn:focus {
   outline: none;
   box-shadow: none;
 }
 
-/* Responsive Button Styling */
 @media (max-width: 600px) {
   ion-button, .browse-platforms-btn {
-    font-size: 0.9rem; /* Adjust font size for smaller screens */
-    padding: 0.3rem 0.6rem; /* Reduce padding */
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 
-/* Glassmorphism Effect for Cards */
 ion-item {
   display: flex;
   align-items: center;
   margin-bottom: 0.8rem;
   border-radius: 12px;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-  backdrop-filter: blur(10px); /* Blur effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Card Hover Effects */
 ion-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Additional Styling for Hero Section */
 #hero {
   text-align: center;
   background: #f4f4f4;
@@ -97,7 +87,6 @@ ion-item:hover {
   margin-bottom: 1.5rem;
 }
 
-/* Section Title Styling */
 .section-title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -106,12 +95,10 @@ ion-item:hover {
   text-align: center;
 }
 
-/* Game Platforms List */
 ion-list {
   margin-bottom: 2rem;
 }
 
-/* General Styling for ion-item */
 ion-item {
   display: flex;
   align-items: center;
@@ -121,7 +108,7 @@ ion-item {
   border: 1px solid #353e4b;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 0; /* Remove padding */
+  padding: 0;
 }
 
 ion-item:hover {
@@ -136,32 +123,31 @@ ion-item-option {
   border-radius: 8px;
   background-color: #cc52b2;
 }
+
 ion-item-sliding {
-  transition: transform 0.3s ease-in-out; /* Smooth sliding */
+  transition: transform 0.3s ease-in-out;
 }
+
 ion-item-options {
-  transition: transform 0.3s ease-in-out; /* Smooth transition */
-  opacity: 1; /* Hidden by default */
+  transition: transform 0.3s ease-in-out;
+  opacity: 1;
 }
 
-/* Adjust the sliding icon for better visual feedback */
 .sliding-icon {
-  transition: transform 0.3s ease-in-out; /* Match transition */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Add a subtle hover effect */
 ion-item:hover {
   transform: translateY(-3px);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; /* Enhanced shadow */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-/* Adjusted padding and margin for ion-thumbnail */
 ion-thumbnail {
   border-radius: 8px;
   width: 50px;
   height: 50px;
-  margin-right: 5px; /* Adjusted margin-right */
-  padding: 0; /* Remove padding */
+  margin-right: 5px;
+  padding: 0;
 }
 
 ion-label {
@@ -182,21 +168,18 @@ ion-label p {
   color: #666;
 }
 
-/* Sliding icon to indicate sliding */
 .sliding-icon {
-  color: #353e4b; /* Adjust the color to match your design */
-  font-size: 1.5rem; /* Adjust size as needed */
-  margin-left: 0.5rem; /* Adjust spacing */
-  opacity: 0.7; /* Slightly transparent */
+  color: #353e4b;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  opacity: 0.7;
 }
 
-/* Add hover effect to ion-item to indicate it is slidable */
 ion-item:hover .sliding-icon {
-  transform: translateX(5px); /* Slight movement to indicate sliding */
+  transform: translateX(5px);
   transition: transform 0.3s ease-in-out;
 }
 
-/* Styling for swiper-container */
 swiper-container {
   width: 100%;
   height: 40vh;
@@ -227,15 +210,13 @@ ion-spinner {
   align-items: center;
 }
 
-/* Styling for the "View" button */
 .view-button {
-  --background: #cc52b2; /* Pink button background */
-  --background-hover: lighten(#cc52b2, 10%); /* Lighter pink on hover */
+  --background: #cc52b2;
+  --background-hover: lighten(#cc52b2, 10%);
   --background-activated: #cc52b2 !important;
- /* Ensure the active state remains pink */
-  --color: white; /* White text */
-  border-radius: 8px; /* Rounded corners */
-  font-size: 0.9rem; /* Adjust font size */
-  font-weight: bold; /* Bold text */
-  transition: background 0.3s ease, transform 0.2s ease-in-out; /* Smooth transition */
+  --color: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
 }

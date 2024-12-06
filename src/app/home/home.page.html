@@ -6,6 +6,7 @@
 
 
 <ion-content class="ion-padding">
+  <!-- Home Page Swiper Content -->
     <div *ngIf="games.length > 0">
       <swiper-container
         autoplay="true"
@@ -28,7 +29,6 @@
     </ion-button>
   </section>
 
-  <!-- Loading Spinner -->
   <ion-spinner *ngIf="isLoading"></ion-spinner>
 
 <!-- Game Platforms List -->

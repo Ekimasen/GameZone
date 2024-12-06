@@ -13,9 +13,9 @@ export class GamesPage implements OnInit {
   isLoading = false;
   errorMessage: string | null = null;
   currentPage = 1;
-  pageSize = 20; // Number of games per page
+  pageSize = 20;
   totalPages: number = 1;
-  searchQuery = ''; // Holds the search query
+  searchQuery = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -24,28 +24,29 @@ export class GamesPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Initialize the platform ID and fetch games by platform
     this.platformId = +this.route.snapshot.paramMap.get('id')!;
-    this.fetchGamesByPlatform(this.platformId, this.currentPage); // Initially fetch games by platform
+    this.fetchGamesByPlatform(this.platformId, this.currentPage);
   }
 
+  // Handle search button click event
   onSearchButtonClick() {
     if (this.searchQuery.trim() !== '') {
-      this.currentPage = 1; // Reset to the first page when a new search is made
-      this.fetchGames(this.searchQuery, this.platformId); // Pass platformId with the search query
+      this.currentPage = 1;
+      this.fetchGames(this.searchQuery, this.platformId);
     } else {
-      // If search query is empty, fetch games for the platform without search
       this.fetchGamesByPlatform(this.platformId, this.currentPage);
     }
   }
 
+  // Fetch games based on search query and platform ID
   fetchGames(query: string = '', platformId: number) {
     this.isLoading = true;
     this.errorMessage = null;
 
-    // Fetch the games using the query and platformId
     this.rawgService.searchGames(query, this.currentPage, this.pageSize, platformId).subscribe({
       next: (response) => {
-        console.log('API Response:', response); // Log the response for debugging
+        console.log('API Response:', response);
         if (response.count === 0) {
           this.errorMessage = 'No games found for your search.';
         } else {
@@ -62,11 +63,11 @@ export class GamesPage implements OnInit {
     });
   }
 
+  // Fetch games by platform ID
   fetchGamesByPlatform(platformId: number, page: number) {
     this.isLoading = true;
     this.errorMessage = null;
 
-    // Fetch games by platform without search query
     this.rawgService.getGamesByPlatform(platformId, page, this.pageSize).subscribe({
       next: (response) => {
         this.games = response.results;
@@ -81,23 +82,28 @@ export class GamesPage implements OnInit {
     });
   }
 
+  // Load the next page of games
   loadNextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.fetchGames(this.searchQuery, this.platformId); // Ensure the search query is passed with pagination
+      this.fetchGames(this.searchQuery, this.platformId);
     }
   }
 
+  // Load the previous page of games
   loadPreviousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.fetchGames(this.searchQuery, this.platformId); // Ensure the search query is passed with pagination
+      this.fetchGames(this.searchQuery, this.platformId);
     }
   }
 
+  // Get the genres of a game as a string
   getGenres(game: any): string {
     return game.genres ? game.genres.map((g: any) => g.name).join(', ') : 'N/A';
   }
+
+  // Navigate to the game detail page
   goToGameDetail(game: any) {
     this.router.navigate(['/game-detail', game.id], {
       state: { gameDetails: game }

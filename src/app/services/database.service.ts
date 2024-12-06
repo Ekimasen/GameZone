@@ -60,7 +60,7 @@ export class DatabaseService {
       return this.user;
     } catch (error) {
       console.error('Error reading user profile:', error);
-      return null;  // Returning null in case of error
+      return null; 
     }
   }
 
@@ -107,12 +107,12 @@ async updateUser(id: number, name: string, email: string, password: string, prof
   // Get logged-in user ID from session table
   async getLoggedInUserId() {
     try {
-      const query = `SELECT user_id FROM session LIMIT 1`;  // Get the current session's user_id
+      const query = `SELECT user_id FROM session LIMIT 1`;  
       const result = await this.dbcon.query(query);
       if (result?.values?.length) {
-        return result.values[0].user_id;  // Return user_id
+        return result.values[0].user_id; 
       } else {
-        return null;  // No logged-in user found
+        return null; 
       }
     } catch (error) {
       console.error('Error fetching logged-in user ID:', error);
@@ -126,9 +126,9 @@ async updateUser(id: number, name: string, email: string, password: string, prof
       const query = `SELECT * FROM user WHERE id = ${userId}`;
       const result = await this.dbcon.query(query);
       if (result?.values?.length) {
-        return result.values[0];  // Return the user data
+        return result.values[0]; 
       } else {
-        return null;  // No user found
+        return null;
       }
     } catch (error) {
       console.error('Error fetching user by ID:', error);
@@ -139,7 +139,7 @@ async updateUser(id: number, name: string, email: string, password: string, prof
   // Clear session (logout)
   async clearSession() {
     try {
-      const query = `DELETE FROM session`;  // Clear the session table
+      const query = `DELETE FROM session`; 
       await this.dbcon.execute(query);
     } catch (error) {
       console.error('Error clearing session:', error);

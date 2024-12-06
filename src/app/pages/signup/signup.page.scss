@@ -1,6 +1,6 @@
 /* General page styling */
 .signup-page {
-  --background: linear-gradient(140deg, #f073df, #261f27); /* Gradient background */
+  --background: linear-gradient(140deg, #f073df, #261f27);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@ ion-card-title {
   font-size: 1.5rem;
   font-weight: bold;
   color: #3b5998;
-  text-align: center; /* Center align text */
+  text-align: center;
 }
 
 /* Input field styling */
@@ -130,13 +130,13 @@ ion-card-title {
 /* Error Message Styling */
 .error-message {
   margin-top: 0.5rem;
-  color: #FF4C4C; /* Red color for error messages */
+  color: #FF4C4C;
   text-align: center;
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
   .signup-card {
-    padding: 1rem; /* Reduced padding for smaller screens */
+    padding: 1rem;
   }
 }

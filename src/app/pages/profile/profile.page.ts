@@ -22,7 +22,7 @@ export class ProfilePage implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private navCtrl: NavController,
-    private toastController: ToastController // Inject ToastController
+    private toastController: ToastController
   ) {
     this.profileForm = this.fb.group({
       name: ['', Validators.required],
@@ -33,10 +33,12 @@ export class ProfilePage implements OnInit {
     });
   }
 
+  // Load user profile on initialization
   ngOnInit() {
     this.loadUserProfile();
   }
 
+  // Load the user profile from the database
   async loadUserProfile() {
     this.isLoading = true;
     try {
@@ -63,6 +65,7 @@ export class ProfilePage implements OnInit {
     }
   }
 
+  // Toggle the visibility of password fields
   togglePasswordFields() {
     this.showPasswordFields = !this.showPasswordFields;
     const validators = this.showPasswordFields
@@ -74,6 +77,7 @@ export class ProfilePage implements OnInit {
     this.profileForm.updateValueAndValidity();
   }
 
+  // Save the user profile
   async saveProfile() {
     if (this.profileForm.invalid) {
       await this.showToast('Please fill in all fields correctly.', 'danger');
@@ -111,12 +115,14 @@ export class ProfilePage implements OnInit {
     }
   }
 
+  // Log out the user
   async logout() {
     await this.dbService.clearSession();
     await this.showToast('Logged out!', 'success');
     this.navCtrl.navigateRoot(['/login'], { animated: true, animationDirection: 'forward' });
   }
 
+  // Pick a profile picture using the camera
   async pickProfilePicture() {
     try {
       const image = await Camera.getPhoto({
@@ -132,6 +138,7 @@ export class ProfilePage implements OnInit {
     }
   }
 
+  // Show a toast message
   async showToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message,

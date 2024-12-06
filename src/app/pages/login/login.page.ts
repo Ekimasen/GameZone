@@ -29,6 +29,7 @@ export class LoginPage implements OnInit {
     });
   }
 
+  // Initialize the database tables
   async ngOnInit() {
     try {
       await this.database.initDb();
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
     }
   }
 
+  // Display a toast message
   async presentToast(message: string, duration: number, color: string = 'primary') {
     const toast = await this.toastController.create({
       message: message,
@@ -49,6 +51,7 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
+  // Handle the login process
   async callLogin() {
     if (this.loginForm.invalid) {
       this.errorMessage = 'Please enter a valid email and password.';
@@ -56,12 +59,11 @@ export class LoginPage implements OnInit {
       return;
     }
   
-    this.isLoading = true; // Show the loading screen
+    this.isLoading = true;
   
     const { email, password } = this.loginForm.value;
   
     try {
-      // Simulate a delay to show loading (useful for UI effect)
       await new Promise(resolve => setTimeout(resolve, 2000));
   
       const users = await this.database.read(email);
@@ -73,17 +75,14 @@ export class LoginPage implements OnInit {
         await this.database.storeSession(user.id);
         this.presentToast(this.successMessage, 2000, 'success');
   
-        // Delay navigation to ensure the loading screen completes its progress
         setTimeout(() => {
-          this.isLoading = false; // Hide the loading screen only after success
+          this.isLoading = false;
           this.navigateToHome();
-        }, 4000); // Adjust this time to ensure the loading screen is complete
+        }, 4000);
       } else {
         this.errorMessage = 'Invalid email or password. Please try again.';
         this.successMessage = '';
         this.presentToast(this.errorMessage, 2000, 'danger');
-  
-        // Hide loading screen on failure
         this.isLoading = false;
       }
     } catch (error) {
@@ -91,20 +90,21 @@ export class LoginPage implements OnInit {
       this.errorMessage = 'Failed to log in. Please try again.';
       this.successMessage = '';
       this.presentToast(this.errorMessage, 2000, 'danger');
-  
-      // Ensure loading screen is hidden on failure
       this.isLoading = false;
     }
-  }    
+  }
+
   // Navigate to the home page after successful login
   navigateToHome() {
     this.router.navigate(['/home']);
   }
 
+  // Toggle the visibility of the password input field
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 
+  // Show the login form
   showLoginForm() {
     this.isLoginFormVisible = true;
   }

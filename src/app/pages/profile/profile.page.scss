@@ -1,131 +1,119 @@
-/* Profile Container */
 .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    height: 100vh;  // Full viewport height for better centering
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  height: 100vh;
+}
+
+.profile-picture-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  margin: 0 auto;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.error-message {
+  color: #D32F2F;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.error-message ion-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.success-message {
+  color: #388E3C;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+form {
+  width: 100%;
+}
+
+ion-item {
+  margin-bottom: 20px;
+  --highlight-color-focused: #6200EE;
+  --inner-padding-end: 12px;
+}
+
+ion-input {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 8px;
+}
+
+ion-button {
+  --background: #6200EE;
+  --border-radius: 8px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --color: #fff;
+}
+
+ion-button:disabled {
+  --background: #9e9e9e;
+  --color: #b0b0b0;
+}
+
+@media (max-width: 600px) {
+  .profile-container {
+    padding: 10px;
   }
-  .profile-picture-item {
-    display: flex;
-    justify-content: center;  /* Horizontally center the content */
-    align-items: center;      /* Vertically center the content */
-    margin-bottom: 20px;      /* Space between the image and form fields */
-  }
-  
-  .profile-picture {
-    width: 120px; /* Set the size of the profile picture */
-    height: 120px;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    border-radius: 50%; /* Makes the image circular */
-    border: 3px solid #ccc; /* Optional: Adds a border around the image */
-    margin: 0 auto; /* Ensure the image itself is centered */
-  }
-  
-  /* Ion Card Styling */
+
   ion-card {
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  // Soft shadow effect for card
-    border-radius: 12px;  // Rounded corners for the card
-    overflow: hidden;  // Ensure content fits inside rounded corners
-    background-color: #fff;
-    padding: 20px;
+    width: 90%;
   }
-  
-  /* Centered Content inside the Card */
+
   .center-content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;  // Add gap between form elements for better spacing
+    gap: 15px;
   }
-  
-  /* Error Message Styling */
-  .error-message {
-    color: #D32F2F;  // Use a red shade that’s more eye-catching
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    font-weight: bold;  // Make the error message stand out
-    font-size: 14px;  // Slightly smaller font for error message
-  }
-  
-  /* Error Icon Styling */
-  .error-message ion-icon {
-    margin-right: 8px;  // Increased space between icon and text
-    font-size: 18px;  // Slightly larger error icon
-  }
-  
-  /* Success Message Styling */
-  .success-message {
-    color: #388E3C;  // Green color for success
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  
-  /* Form Styling */
-  form {
-    width: 100%;
-  }
-  
-  /* Ion Item Styling for Inputs */
+
   ion-item {
-    margin-bottom: 20px;  // More space between input fields
-    --highlight-color-focused: #6200EE;  // Custom focused color for inputs
-    --inner-padding-end: 12px;  // Reduce inner padding for inputs for better look
+    margin-bottom: 15px;
   }
-  
-  /* Input Field Styling */
-  ion-input {
-    --padding-start: 12px;  // Padding inside input for better alignment
-    --padding-end: 12px;
-    --border-radius: 8px;  // Slightly rounded borders for input fields
+
+  .error-message,
+  .success-message {
+    font-size: 12px;
   }
-  
-  /* Button Styling */
-  ion-button {
-    --background: #6200EE;  // Custom primary color for buttons
-    --border-radius: 8px;  // Rounded button borders for consistency
-    --padding-start: 16px;  // Better padding inside the button
-    --padding-end: 16px;
-    --color: #fff;  // White text for the button
-  
-    &:disabled {
-      --background: #9e9e9e;  // Grey color for disabled buttons
-      --color: #b0b0b0;
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    .profile-container {
-      padding: 10px;
-    }
-  
-    ion-card {
-      width: 90%;  // Make card take up most of the screen width on small devices
-    }
-  
-    .center-content {
-      gap: 15px;  // Slightly smaller gap on smaller screens
-    }
-  
-    ion-item {
-      margin-bottom: 15px;  // Reduce the margin for smaller screens
-    }
-  
-    .error-message,
-    .success-message {
-      font-size: 12px;  // Smaller text size for messages on mobile
-    }
-  }
-  .profile-pic-label{
-    text-align: center;
-    }
-  
-  
-  
+}
+
+.profile-pic-label {
+  text-align: center;
+}

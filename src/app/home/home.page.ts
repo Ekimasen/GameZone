@@ -11,22 +11,23 @@ register();
 })
 export class HomePage implements OnInit {
   platforms: any[] = [];
-  gameIds: number[] = []; // Array to store game IDs
+  gameIds: number[] = [];
   isLoading = true;
-  showPlatforms = false; // Flag to toggle visibility of platform list
-  games: any[] = []; // Store multiple game objects
+  showPlatforms = false;
+  games: any[] = [];
 
   constructor(private rawgService: RawgService) {}
 
   ngOnInit() {
-    this.fetchPlatforms();
-    this.fetchGameIds(); // Fetch game IDs on initialization
+    this.fetchPlatforms(); 
+    this.fetchGameIds();
   }
 
+  // Fetches the list of gaming platforms
   fetchPlatforms() {
     this.rawgService.getPlatforms().subscribe({
       next: (response) => {
-        this.platforms = response.results; // RAWG API returns the platforms in `results`
+        this.platforms = response.results;
         this.isLoading = false;
       },
       error: (error) => {
@@ -36,10 +37,11 @@ export class HomePage implements OnInit {
     });
   }
 
+  // Fetches game IDs from a specific platform
   fetchGameIds() {
-    this.rawgService.getGamesByPlatform(18, 1, 50).subscribe({ // Fetch games from a specific platform, e.g., platform ID 18 (PlayStation)
+    this.rawgService.getGamesByPlatform(18, 1, 50).subscribe({
       next: (response) => {
-        this.gameIds = response.results.map((game: any) => game.id); // Extract game IDs
+        this.gameIds = response.results.map((game: any) => game.id);
         this.loadRandomGameDetails();
       },
       error: (error) => {
@@ -49,8 +51,9 @@ export class HomePage implements OnInit {
     });
   }
 
+  // Loads details of random games
   loadRandomGameDetails() {
-    const selectedGameIds = this.getRandomGameIds(5); // Get 5 random game IDs
+    const selectedGameIds = this.getRandomGameIds(5);
     selectedGameIds.forEach(gameId => {
       this.rawgService.getGameDetails(gameId).subscribe({
         next: (response) => {
@@ -79,12 +82,12 @@ export class HomePage implements OnInit {
 
   // Method to toggle the visibility of the platform list
   togglePlatforms() {
-    this.showPlatforms = !this.showPlatforms; // Toggle the visibility of the platforms list
+    this.showPlatforms = !this.showPlatforms;
   }
 
   // Method to get a random platform ID
   getRandomPlatformId(): number {
     const randomIndex = Math.floor(Math.random() * this.platforms.length);
-    return this.platforms[randomIndex]?.id; // Return random platform ID, if available
+    return this.platforms[randomIndex]?.id;
   }
 }
