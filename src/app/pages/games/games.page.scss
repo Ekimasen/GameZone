@@ -1,14 +1,14 @@
 /* Header Styling */
 ion-toolbar {
   text-align: center;
-  --ion-toolbar-background: linear-gradient(180deg, #821D30, #FB6090);
+  --ion-toolbar-background: linear-gradient(180deg, #f073df, #261f27);
   --ion-toolbar-color: #F7D6D0;
 }
 
 ion-title {
   font-size: 1.5em;
   font-weight: bold;
-  color: #F7D6D0;
+  color: #FFFFFF;
 }
 
 /* Search Bar */
@@ -21,15 +21,20 @@ ion-title {
 
 .search-input {
   width: 100%;
+  padding: 10px;
   border-radius: 10px;
-  background-color: #FFC5D0;
+  border: 10px solid rgba(255, 255, 255, 0.3); /* Subtle border for glass effect */
+  background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  backdrop-filter: blur(10px); /* Blur for glassmorphism */
   font-size: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, border-color 0.3s;
 }
 
 .search-input:focus {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2),
+              0 4px 10px rgba(255, 255, 255, 0.3); /* Enhanced shadow */
+  border-color: rgba(240, 115, 223, 0.7); /* Highlighted border on focus */
 }
 
 .clear-icon {
@@ -37,14 +42,22 @@ ion-title {
 }
 
 .search-button {
-  color: #821D30;
+  color: #f073df;
   --background: transparent;
   font-weight: bold;
-  transition: color 0.3s;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Transparent button */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  backdrop-filter: blur(10px); /* Blur for button glass effect */
+  transition: color 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
 .search-button:hover {
-  color: #FB6090;
+  color: #d665c7;
+  background: rgba(255, 255, 255, 0.3); /* Brighter glass effect on hover */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Game Card Styling */
@@ -54,7 +67,9 @@ ion-title {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-  border: 2px solid #821D30;
+  border: 2px solid #d74b8a;
+  background: rgba(255, 255, 255, 0.15); /* Semi-transparent for glassmorphism */
+  backdrop-filter: blur(15px); /* Blur for glassmorphism */
 }
 
 .game-card:hover {
@@ -63,24 +78,24 @@ ion-title {
 }
 
 ion-card-header {
-  background-color: #FB6090;
+  background-color: #f073df;
   padding: 10px;
 }
 
 ion-card-title {
   font-size: 18px;
   font-weight: bold;
-  color: #821D30;
+  color: #ffffff;
 }
 
 ion-card-subtitle {
   font-size: 14px;
-  color: #FFC5D0;
+  color: #ffffff;
 }
 
 ion-card-content {
   font-size: 14px;
-  color: #821D30;
+  color: #000000;
   padding: 10px;
 }
 
@@ -98,7 +113,7 @@ ion-img {
 .loading-text {
   font-size: 18px;
   font-weight: bold;
-  color: #FB6090;
+  color: #d74b8a;
 }
 
 /* Error Message */
