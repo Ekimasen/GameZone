@@ -1,6 +1,6 @@
 /* Toolbar with Gradient Background */
 ion-toolbar {
-  --background: linear-gradient(180deg, #020326, #353e4b); /* Gradient background */
+  --background: linear-gradient(180deg, #f073df, #261f27); /* Gradient background */
 }
 
 /* Title Styling */
@@ -27,6 +27,13 @@ ion-button, .browse-platforms-btn {
   transition: transform 0.2s, background 0.3s ease-in-out; /* Smooth hover transition */
 }
 
+/* Updated Button Color */
+ion-button, .browse-platforms-btn {
+  --background: #cc52b2; /* New button color */
+  --background-hover: darken(#cc52b2, 10%); /* Slightly darker on hover */
+  --background-activated: lighten(#cc52b2, 10%); /* Slightly lighter on active */
+}
+
 /* Hover Effect */
 ion-button:hover, .browse-platforms-btn:hover {
   transform: scale(1.03); /* Slight scaling effect */
@@ -44,6 +51,26 @@ ion-button:focus, .browse-platforms-btn:focus {
     font-size: 0.9rem; /* Adjust font size for smaller screens */
     padding: 0.3rem 0.6rem; /* Reduce padding */
   }
+}
+
+/* Glassmorphism Effect for Cards */
+ion-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  border-radius: 12px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Card Hover Effects */
+ion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Additional Styling for Hero Section */
@@ -102,7 +129,7 @@ ion-item:hover {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-ion-item-option{
+ion-item-option {
   height: 70px;
   width: 70px;
   overflow: hidden;
@@ -126,6 +153,7 @@ ion-item:hover {
   transform: translateY(-3px);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; /* Enhanced shadow */
 }
+
 /* Adjusted padding and margin for ion-thumbnail */
 ion-thumbnail {
   border-radius: 8px;
@@ -196,4 +224,17 @@ swiper-slide {
 ion-spinner {
   display: flex;
   align-items: center;
+}
+
+/* Styling for the "View" button */
+.view-button {
+  --background: #cc52b2; /* Pink button background */
+  --background-hover: lighten(#cc52b2, 10%); /* Lighter pink on hover */
+  --background-activated: #cc52b2 !important;
+ /* Ensure the active state remains pink */
+  --color: white; /* White text */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 0.9rem; /* Adjust font size */
+  font-weight: bold; /* Bold text */
+  transition: background 0.3s ease, transform 0.2s ease-in-out; /* Smooth transition */
 }
