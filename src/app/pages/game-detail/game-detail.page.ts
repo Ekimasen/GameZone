@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RawgService } from '../../services/rawg.service';
-import { FavoriteService } from '../../services/favorite.service';
-import { DatabaseService } from '../../services/database.service'; // Import DatabaseService
+import { FavoriteService } from '../../services/favorite.service'; // Import FavoriteService
 
 @Component({
   selector: 'app-game-detail',
@@ -13,23 +12,18 @@ export class GameDetailPage implements OnInit {
   game: any;
   screenshots: any[] = [];
   isLoading = true;
-  isFavorite = false;
-  userId: number | null = null; // Use nullable type
+  isFavorite = false; // Add a flag to track favorite state
 
   constructor(
     private route: ActivatedRoute,
     private rawgService: RawgService,
-    private favoriteService: FavoriteService,
-    private databaseService: DatabaseService // Inject DatabaseService
+    private favoriteService: FavoriteService // Inject FavoriteService
   ) {}
 
-  async ngOnInit() {
-    this.userId = await this.databaseService.getLoggedInUserId(); // Get the logged-in user ID
+  ngOnInit() {
     const gameId = +this.route.snapshot.paramMap.get('id')!;
     this.loadGameDetails(gameId);
-    if (this.userId) {
-      this.isFavorite = this.favoriteService.isFavorite(this.userId, gameId); // Check if the game is already a favorite
-    }
+    this.isFavorite = this.favoriteService.isFavorite(gameId); // Check if the game is already a favorite
   }
 
   loadGameDetails(gameId: number) {
@@ -58,14 +52,12 @@ export class GameDetailPage implements OnInit {
   }
 
   toggleFavorite(game: any) {
-    if (this.userId) {
-      if (this.isFavorite) {
-        this.favoriteService.removeFromFavorite(this.userId, game.id);
-      } else {
-        this.favoriteService.addToFavorite(this.userId, game);
-      }
-      this.isFavorite = !this.isFavorite;
+    if (this.isFavorite) {
+      this.favoriteService.removeFromFavorite(game.id);
+    } else {
+      this.favoriteService.addToFavorite(game);
     }
+    this.isFavorite = !this.isFavorite;
   }
 
   getGenres(game: any): string {
