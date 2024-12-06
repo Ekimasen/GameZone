@@ -1,26 +1,42 @@
-<ion-content class="ion-padding">
-  <form [formGroup]="loginForm" (ngSubmit)="callLogin()">
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input type="email" formControlName="email" fill="outline" required></ion-input>
-    </ion-item>
+<app-loading-screen *ngIf="isLoading" (loadingComplete)="navigateToHome()"></app-loading-screen>
+<ion-content *ngIf="!isLoading" class="ion-padding login-page">
+  <div class="login-container">
+    <div class="game-logo-wrapper">
+      <ion-img src="assets/icon/logo.png" class="game-logo"></ion-img>
+    </div>
+    <ion-card class="login-card">
+      <ion-card-header class="ion-text-center">
+        <ion-card-title>Welcome User</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="callLogin()" *ngIf="isLoginFormVisible">
+          <ion-item lines="none" class="input-item">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email" required></ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input 
-        [type]="showPassword ? 'text' : 'password'" 
-        formControlName="password" 
-        fill="outline" 
-        required>
-        <ion-icon 
-          [name]="showPassword ? 'eye-off' : 'eye'" 
-          slot="end" 
-          (click)="togglePasswordVisibility()">
-        </ion-icon>
-      </ion-input>
-    </ion-item>
+          <ion-item lines="none" class="input-item">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input 
+              [type]="showPassword ? 'text' : 'password'" 
+              formControlName="password" 
+              required>
+              <ion-icon 
+                [name]="showPassword ? 'eye-off' : 'eye'" 
+                slot="end" 
+                class="password-toggle"
+                (click)="togglePasswordVisibility()">
+              </ion-icon>
+            </ion-input>
+          </ion-item>
 
-    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
-    <p [routerLink]="['/signup']">Don't have an account? Sign Up</p>
-  </form>
+          <ion-button expand="block" type="submit" [disabled]="loginForm.invalid" class="login-button">Login</ion-button>
+        </form>
+        <div *ngIf="!isLoginFormVisible" class="button-group">
+          <ion-button expand="block" (click)="showLoginForm()" class="main-button">Login</ion-button>
+          <ion-button expand="block" [routerLink]="['/signup']" class="main-button secondary">Sign Up</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

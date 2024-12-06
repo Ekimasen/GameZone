@@ -31,25 +31,28 @@
   <!-- Loading Spinner -->
   <ion-spinner *ngIf="isLoading"></ion-spinner>
 
-  <!-- Game Platforms List -->
-  <section class="section" *ngIf="showPlatforms && !isLoading">
-    <h3 class="section-title">Popular Platforms</h3>
-    <ion-list>
-      <ion-item *ngFor="let platform of platforms">
-        <ion-thumbnail slot="start">
-          <img [src]="platform.image_background" alt="{{ platform.name }}" />
-        </ion-thumbnail>
-        <ion-label>
-          <h2>{{ platform.name }}</h2>
-          <p>Games: {{ platform.games_count }}</p>
-        </ion-label>
-
-        <ion-button slot="end" [routerLink]="['/games', platform.id]">
-          View Details
-        </ion-button>
-      </ion-item>
-    </ion-list>
-  </section>
+<!-- Game Platforms List -->
+    <section class="section" *ngIf="showPlatforms && !isLoading">
+        <h3 class="section-title">Popular Platforms</h3>
+        <ion-grid>
+            <ion-row>
+                <ion-col size-xs="12" size-sm="6" *ngFor="let platform of platforms">
+                    <ion-item>
+                        <ion-thumbnail slot="start">
+                            <img [src]="platform.image_background" alt="{{ platform.name }}" />
+                        </ion-thumbnail>
+                        <ion-label>
+                            <h2>{{ platform.name }}</h2>
+                            <p class="count">Games: {{ platform.games_count }}</p>
+                        </ion-label>
+                        <ion-button slot="end" [routerLink]="['/games', platform.id]">
+                            View Details
+                        </ion-button>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </section>
 </ion-content>
 
 <app-bottom-nav></app-bottom-nav>

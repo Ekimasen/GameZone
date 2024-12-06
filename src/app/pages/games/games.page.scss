@@ -1,16 +1,17 @@
 /* Header Styling */
 ion-toolbar {
   text-align: center;
-  --ion-toolbar-background: linear-gradient(180deg, #2196F3, #21CBF3);
-  --ion-toolbar-color: white;
+  --ion-toolbar-background: linear-gradient(180deg, #821D30, #FB6090);
+  --ion-toolbar-color: #F7D6D0;
 }
 
 ion-title {
   font-size: 1.5em;
   font-weight: bold;
-  color: white;
+  color: #F7D6D0;
 }
 
+/* Search Bar */
 .search-container {
   padding: 15px;
   display: flex;
@@ -18,15 +19,10 @@ ion-title {
   align-items: center;
 }
 
-.search-item {
-  position: relative;
-  width: 100%;
-}
-
 .search-input {
-  padding-left: 30px;
+  width: 100%;
   border-radius: 10px;
-  background-color: #f4f4f4;
+  background-color: #FFC5D0;
   font-size: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s;
@@ -41,29 +37,24 @@ ion-title {
 }
 
 .search-button {
-  padding: 8px 15px;
-  color: #00a4aa;
+  color: #821D30;
   --background: transparent;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  transition: color 0.3s, border-color 0.3s;
+  transition: color 0.3s;
 }
 
 .search-button:hover {
-  color: #2a60b8;
-  border-color: #2a60b8;
+  color: #FB6090;
 }
 
 /* Game Card Styling */
 .game-card {
   margin: 10px 0;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid #821D30;
 }
 
 .game-card:hover {
@@ -72,25 +63,30 @@ ion-title {
 }
 
 ion-card-header {
-  background-color: #f0f0f0;
+  background-color: #FB6090;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
 }
 
 ion-card-title {
   font-size: 18px;
   font-weight: bold;
+  color: #821D30;
 }
 
 ion-card-subtitle {
   font-size: 14px;
-  color: #555;
+  color: #FFC5D0;
 }
 
 ion-card-content {
   font-size: 14px;
-  color: #666;
+  color: #821D30;
   padding: 10px;
+}
+
+ion-img {
+  height: 200px;
+  object-fit: cover;
 }
 
 /* Loading Spinner */
@@ -102,21 +98,20 @@ ion-card-content {
 .loading-text {
   font-size: 18px;
   font-weight: bold;
-  color: #3880ff;
+  color: #FB6090;
 }
 
 /* Error Message */
 .error-message {
-  color: #ff3b30;
+  color: #821D30;
   text-align: center;
   font-size: 16px;
   padding: 20px;
-  background-color: #ffe6e6;
+  background-color: #FFC5D0;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s;
 }
 
 .error-message ion-icon {
@@ -135,28 +130,15 @@ ion-card-content {
   padding: 10px;
   border-radius: 30px;
   margin: 5px;
-  color: #3880ff; /* Set text color to blue */
+  color: #FB6090;
   font-weight: bold;
-  transition: color 0.3s, border-color 0.3s;
+  transition: color 0.3s;
 }
 
 .pagination-controls ion-button:hover {
-  color: #2a60b8; /* Change text color on hover */
-  border-color: #2a60b8; /* Change border color on hover */
+  color: #821D30;
 }
 
 .pagination-controls ion-button[disabled] {
-  background-color: transparent; /* Set background to transparent */
-  color: #a3a3a3;
-  border: 2px solid #e0e0e0; /* Change border color for disabled state */
-}
-
-/* No Games Found */
-.center-content p {
-  font-size: 18px;
-  color: #555;
-  transition: color 0.3s;
-}
-ion-img{
-  height: 200px;
+  color: #F7D6D0;
 }

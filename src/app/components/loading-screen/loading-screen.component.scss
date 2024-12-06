@@ -1,0 +1,76 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.pikachu {
+  position: absolute; /* Positioning Pikachu to move along the progress bar */
+  top: 300px;
+  bottom: 0;
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  transition: left 0.2s ease-in-out;
+}
+
+.progress-bar {
+  width: 80%; /* Adjust this as needed */
+  height: 20px;
+  background-color: #e0e0e0; /* Grey background for the progress bar */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #ff00ff; /* Magenta color for the progress */
+  transition: width 0.2s ease-in-out;
+}
+
+.falling-gif {
+  position: absolute;
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  animation: fall 5s infinite;
+}
+
+.falling-gif-1 {
+  top: -100px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.falling-gif-2 {
+  top: -100px;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.falling-gif-3 {
+  top: -100px;
+  left: 60%;
+  animation-delay: 2s;
+}
+
+.falling-gif-4 {
+  top: -100px;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+@keyframes fall {
+  0% {
+    top: -100px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
