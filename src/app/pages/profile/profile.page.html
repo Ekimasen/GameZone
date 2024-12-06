@@ -34,7 +34,7 @@
 
         <!-- Toggle Password Fields -->
         <ion-item lines="none">
-          <ion-button expand="full" (click)="togglePasswordFields()">
+          <ion-button expand="full" class= "change" (click)="togglePasswordFields()">
             {{ showPasswordFields ? 'Cancel Password Change' : 'Change Password' }}
           </ion-button>
         </ion-item>
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Save Button -->
-        <ion-button expand="full" type="submit" [disabled]="profileForm.invalid">
+        <ion-button expand="full" type="submit" class ="save" [disabled]="profileForm.invalid">
           Save
         </ion-button>
       </form>
@@ -64,7 +64,7 @@
   </ion-card>
 
   <!-- Logout Button -->
-  <ion-button expand="full" color="danger" (click)="logout()">Logout</ion-button>
+  <ion-button expand="full" class="logout" (click)="logout()">Logout</ion-button>
 </ion-content>
 
 <app-bottom-nav></app-bottom-nav>

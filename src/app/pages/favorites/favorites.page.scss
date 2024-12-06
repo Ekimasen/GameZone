@@ -1,17 +1,18 @@
 ion-header {
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
+  --background: linear-gradient(180deg, #f073df, #261f27);
     color: white;
   }
   
   ion-toolbar {
-    --background: transparent;
+    --background: linear-gradient(180deg, #f073df, #261f27);
     --ion-color-primary: white;
   }
   
   ion-title {
+    color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
   }
   
   ion-content {
