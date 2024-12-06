@@ -5,9 +5,9 @@
     </ion-buttons>
     <ion-title>{{ game?.name }}</ion-title>
     <ion-buttons slot="end">
-      <ion-icon 
+      <ion-icon color="light"
         [name]="isFavorite ? 'heart' : 'heart-outline'" 
-        [color]="isFavorite ? 'danger' : 'medium'" 
+        [style.color]="isFavorite ? 'white' : 'white'" 
         (click)="toggleFavorite(game)">
       </ion-icon>
     </ion-buttons>
